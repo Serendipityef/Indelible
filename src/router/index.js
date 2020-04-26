@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '../views/Layout.vue'
 import Home from '../views/Home/Home.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -53,11 +54,12 @@ const router = new VueRouter({
 router.beforeEach((to,from,next)=>{
   if(to.meta.islogin){
     console.log(to)
-    let flag = true 
+    // console.log()
+    let flag = store.state.egoToken 
     if(flag){
       next()
     }else{
-      next(false)
+      next('login')
     }
   }else{
     next()
