@@ -97,7 +97,7 @@ var createFolder = function (folder) {
         fs.mkdirSync(folder);
     }
 };
-var uploadFolder = './mock/upload/';
+var uploadFolder = '../mock/upload/';
 createFolder(uploadFolder);
 var upload = multer({ storage: storage });
 
