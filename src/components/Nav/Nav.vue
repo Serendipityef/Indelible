@@ -18,14 +18,14 @@
                   </router-link>
               </div>
               <div>
-                  <router-link to='/product'>
+                  <router-link to='/content'>
                     <i class="el-icon-postcard"></i>   
                     内容分类管理
                   </router-link>
               </div>
               <div>
                   <span class="username">
-                      kevin
+                      {{$store.state.egoUserName}}
                   </span>
                   <el-button
                     @click='logout'
@@ -37,11 +37,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     name:'Nav',
     methods:{
+        ...mapActions(['delegoUserNameAction','delegoTokenAction']),
         logout(){
-            console.log('退出')
+            // console.log('退出')
+            // 删除本地存储
+            localStorage.removeItem('egousername');
+            localStorage.removeItem('egotoken')
+            //删除store中state存储
+            this.delegoUserNameAction();
+            this.delegoTokenAction()
+            this.$router.push('/login')
         }
     }
 }
@@ -109,5 +118,7 @@ html {
     color: #fff;
     margin-right: 5px;
 }
-
+.topNav .router-link-exact-active{
+    color: #409eff;
+}
 </style>

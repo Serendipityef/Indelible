@@ -53,8 +53,7 @@ const router = new VueRouter({
 //前置收尾
 router.beforeEach((to,from,next)=>{
   if(to.meta.islogin){
-    console.log(to)
-    // console.log()
+    // console.log(to)
     let flag = store.state.egoToken 
     if(flag){
       next()
