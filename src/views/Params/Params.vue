@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div>
     <!-- 规格参数按钮 -->
@@ -111,4 +112,20 @@ export default {
 .btns{
   text-align: right;
 }
+=======
+<template>
+  <div>
+      Params
+  </div>
+</template>
+
+<script>
+export default {
+    name:'Params'
+}
+</script>
+
+<style>
+
+>>>>>>> 87822c509980302f81671397ac6e0c6d4685f535
 </style>
